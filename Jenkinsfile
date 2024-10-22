@@ -2,7 +2,7 @@ pipeline {
     agent any
     
     environment {
-        DOCKER_IMAGE = "my-django-app"
+        DOCKER_IMAGE = "taskmanager"
         DOCKER_TAG = "latest"
     }
     
@@ -17,8 +17,8 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Build Docker image using the Dockerfile
-                    sh 'docker build -t ${DOCKER_IMAGE}:${DOCKER_TAG} .'
+                    // Build Docker image using Docker on Windows
+                    bat 'docker build -t %DOCKER_IMAGE%:%DOCKER_TAG% .'
                 }
             }
         }
@@ -27,7 +27,7 @@ pipeline {
             steps {
                 script {
                     // Run unit tests using pytest inside the Docker container
-                    sh 'docker run ${DOCKER_IMAGE}:${DOCKER_TAG} pytest'
+                    bat 'docker run %DOCKER_IMAGE%:%DOCKER_TAG% pytest'
                 }
             }
         }
@@ -36,7 +36,7 @@ pipeline {
             steps {
                 script {
                     // Use docker-compose to deploy the application
-                    sh 'docker-compose -f docker-compose.yml up -d --build'
+                    bat 'docker-compose -f docker-compose.yml up -d --build'
                 }
             }
         }
