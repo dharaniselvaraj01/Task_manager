@@ -13,7 +13,7 @@ RUN echo "source activate taskmanager" > ~/.bashrc
 ENV PATH /opt/conda/envs/taskmanager/bin:$PATH
 
 # Set the working directory
-WORKDIR /taskmanager
+WORKDIR /taskmanager/taskmanager
 
 # Copy your Django project code
 COPY . .
