@@ -10,7 +10,7 @@ pipeline {
         stage('Clone Repo') {
             steps {
                 // Clone the repository from Git
-                git branch: 'main', url: 'https://github.com/your-repo-url.git'
+                git branch: 'main', url: 'https://github.com/dharaniselvaraj01/Task_manager.git'
             }
         }
         
