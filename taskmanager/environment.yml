@@ -1,0 +1,15 @@
+name: taskmanager  # Name of your conda environment
+channels:
+  - defaults
+  - conda-forge
+dependencies:
+  - python=3.12  # Specify the Python version
+  - django=4.2   # Specify the Django version (or any version you need)
+  - requests  # For making HTTP requests
+  - pytest  # For testing
+  - pytest-django  # Django integration for pytests
+  - pip  # Make sure pip is available
+  - pip:
+      - django-allauth  # If you're using Django Allauth for authentication
+      - djangorestframework-simplejwt  # For JWT authentication (if needed)
+      - cryptography
