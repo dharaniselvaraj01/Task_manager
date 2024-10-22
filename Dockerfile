@@ -1,8 +1,6 @@
 # Use the official miniconda3 base image
 FROM continuumio/miniconda3
 
-# Set the working directory
-WORKDIR /app
 
 # Copy the environment.yml file
 COPY environment.yml .
@@ -13,6 +11,9 @@ RUN conda env create -f environment.yml
 # Activate the environment and install Django and other dependencies
 RUN echo "source activate taskmanager" > ~/.bashrc
 ENV PATH /opt/conda/envs/taskmanager/bin:$PATH
+
+# Set the working directory
+WORKDIR /taskmanager
 
 # Copy your Django project code
 COPY . .
