@@ -44,11 +44,11 @@ python manage.py runserver
 Using Docker
 Build the Docker image:
 
-docker build -t task-manager .
+docker build -t taskmanager .
 
 Run the application:
 
-docker run -p 8000:8000 task-manager
+docker run -p 8000:8000 taskmanager
 
 Running Tests
 To run the tests, use the following command:
@@ -56,5 +56,5 @@ To run the tests, use the following command:
 pytest
 You can also use Docker to run tests:
 
-docker build -t task-manager-test -f Dockerfile.test .
-docker run task-manager-test
+docker build -t taskmanager-test -f Dockerfile.test .
+docker run taskmanager-test
