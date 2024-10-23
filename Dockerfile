@@ -12,11 +12,13 @@ RUN conda env create -f environment.yml
 RUN echo "source activate taskmanager" > ~/.bashrc
 ENV PATH /opt/conda/envs/taskmanager/bin:$PATH
 
-# Set the working directory
-WORKDIR /taskmanager/taskmanager
-
 # Copy your Django project code
 COPY . .
+
+# Set the working directory
+WORKDIR taskmanager/tasks
+
+
 
 # Expose the port your app runs on
 EXPOSE 8000
